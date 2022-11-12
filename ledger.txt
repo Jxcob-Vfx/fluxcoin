@@ -1,0 +1,2 @@
+This is where your ledger will appear - clear this file first
+New entries will be newlined (\n)
