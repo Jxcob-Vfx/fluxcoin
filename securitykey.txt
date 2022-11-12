@@ -1,0 +1,11 @@
+Security key for classification goes here
+
+Guide:
+W19A01-9F23-NA
+
+W1 - Regional Specifications (In this case worldwide 1, or "all")
+9A01 - Active Block (In this case Blk9A01)
+9 - Starting from 9 and counting down, the transaction number. Each time you reach 0, the 9th and 10th numbers change (In this case 01)
+F - The access service of admin user (In this case firefox)
+23 - The number of times the 7th value has ticked to 0 (In this case 9)
+NA - The device specifications of the chain (In Fluxcoins case, Python has no innate device specs so Non/Applicable)
