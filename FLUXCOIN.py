@@ -1,5 +1,5 @@
 # fluxcoin secure ledger
-# Jxcob-Vfx 2022
+# Jxcob-Vfx (c) 2022
 
 # this is a secure ledger that tracks and publicly displays the transactions made on the fluxcoin blockchain
 
