@@ -16,7 +16,7 @@ def clearError():
   os.system("clear")
   print("\033[1mINVALID INPUT\033[0m"); print(); print("Ledger will not be cleared."); print()
   e = str(input("Press enter to continue "))
-  main()
+  __init__()
   
 def adminError():
   # menu error while admin user is trying to access an admin panel
@@ -25,14 +25,14 @@ def adminError():
   print("Unknown error while trying to access admin privileges."); print()
   print("Most likely invalid input in an admin-only menu."); print()
   e = str(input("Press enter to continue "))
-  main()
+  __init__()
   
 def comingSoon():
   # error telling end user that a feature is coming soon
   os.system("clear")
   print("\033[1mCOMING SOON\033[0m"); print(); print("This feature has not yet been added."); print();
   e = str(input("Press enter to continue "))
-  main()
+  __init__()
   
 def error():
   # general error when end user input is invalid
@@ -40,7 +40,7 @@ def error():
   print("\033[1mERROR\033[0m"); print()
   print("Unknown error - most likely invalid input."); print()
   e = str(input("Press enter to continue "))
-  main()
+  __init__()
 
 def viewWallet():
   # script for end user to see the balance of any other user
@@ -56,12 +56,12 @@ def viewWallet():
     convUSD = round(convUSD, 2)
     print(f"{userBalance} FLX is equal to $ {convUSD} USD"); print()
     f = str(input("Press enter to return to main menu "))
-    main()
+    __init__()
   except:
     os.system("clear")
     print("\033[1mERROR\033[0m"); print(); print("Invalid user/wallet ID."); print()
     e = str(input("Press enter to return to main menu "))
-    main()
+    __init__()
     
 def viewActiveBlock():
   # show admin user the active block for read/write
@@ -125,7 +125,7 @@ def adminMode():
   elif adminInput == str("4") or adminInput == str("4."):
     modifySecurityKey()
   elif adminInput == str("5") or adminInput == str("5."):
-    main()
+    __init__()
   else:
     adminError()
 def bTransfer():
@@ -144,7 +144,7 @@ def bTransfer():
       print(f"Error - requested to transfer more funds than present in user wallet {user1}"); print()
       print(f"Requested: {amount}"); print(); print(f"Available: {userAbalance}"); print()
       g = str(input("Press enter to return to main menu "))
-      main()
+      __init__()
     else:
       # modify user balances by ofsetting the transfer amount
       newUserAbalance = userAbalance - amount
@@ -173,13 +173,13 @@ def bTransfer():
       print(f"Updated {user2} balance: {newUserBbalance} FLX")
       print(f"This is equal to $ {bUSD} USD"); print()
       m = str(input("Press enter to return to main menu "))
-      main()
+      __init__()
   except:
     # this is the except for that try loop, just in case the user file doesn't exist
     os.system("clear")
     print("\033[1mERROR\033[0m"); print(); print("One or more users not found"); print(); print(f"{user1}, {user2}"); print()
     e = str(input("Press enter to return to main menu "))
-    main()
+    __init__()
 
 def balError():
   # error for when user enters a balance redemption key that doesn't exist
@@ -188,7 +188,7 @@ def balError():
   print("\033[1mERROR\033[0m"); print()
   print("FLX Redemption key not found"); print()
   e = str(input("Press enter to return to main menu "))
-  main()
+  __init__()
 
 def create():
   # code to create a new user file on the blockchain
@@ -201,7 +201,7 @@ def create():
     # in the future, admins will be able to set a specific balace value for new accounts and modify existing ones. This feature has not been implemented yet.
     if bal == str("ADMIN"):
       pass
-      main()
+      __init__()
     else:
       balError()
   elif existingBalance == str("n") or existingBalance == str("N"):
@@ -217,7 +217,7 @@ def create():
     newUser.write(str("0"))
     newUser.close()
     e = str(input("Press enter to return to main menu "))
-    main()
+    __init__()
   else:
     error()
 
@@ -231,7 +231,7 @@ def transaction():
     # if user is sure, run the blockchain transfer \bTransfer()\ protocol subroutine
     bTransfer()
   elif transactionInput == str("2") or transactionInput == str("2."):
-    main()
+    __init__
   else:
     adminError()
 def write():
@@ -249,7 +249,7 @@ def write():
       message = str(input("Message > ")); print()
       f = open("ledger.txt", "a"); f.write(str(f"{message}\n")); f.close()
       print("Message written to blockchain."); print()
-      time.sleep(2); main()
+      time.sleep(2); __init__()
       # since we don't want a massive chunk of code here, run the tranaction menu subroutine if user selects to make a FLX transfer
     elif writeInput == str("2") or writeInput == str("2."):
       transaction()
@@ -263,7 +263,7 @@ def write():
         clr = open("ledger.txt", "w"); clr.write(str()); clr.close()
         os.system("clear")
         print("\033[1mOPERATION SUCCESSFUL\033[0m"); print(); print("Returning to main menu..."); print()
-        time.sleep(2); main()
+        time.sleep(2); __init__()
       else:
         clearError()
         # replace the existing ledger with a file added by admin user
@@ -276,20 +276,20 @@ def write():
         rep = open(f"{replace}", "r"); newLedger = str(rep.read()); rep.close()
         ledg = open("ledger.txt", "w"); ledg.write(str(newLedger)); ledg.close()
         print("Operation successful"); print(); print("Returning to main menu..."); print()
-        time.sleep(2); main()
+        time.sleep(2); __init__()
       except:
         # error if replacement ledger file doesn't exist
         os.system("clear")
         print("\033[1mFILENAME ERROR\033[0m"); print(); print(f"File {replace} not found"); print();
         h = str(input("Press enter to return to main menu "))
-        main()
+        __init__()
     else:
       adminError()
   else:
     # non-admin modification if \ADMIN_VERIFIED\ boolean = \false\
     print("\033[1mACCESS DENIED\033[0m"); print(); print("Only admins can modify the Fluxcoin ledger."); print()
     i = str(input("Press enter to continue "))
-    main()
+    __init__()
     
 def viewLedger():
   # print active ledger
@@ -297,8 +297,8 @@ def viewLedger():
   os.system("clear")
   print("\033[1mFLUXCOIN LEDGER\033[0m"); print()
   f = open("ledger.txt", "r"); ledger = str(f.read()); print(ledger); f.close()
-  viewInput = str(input("Press enter to return to main menu ")); main()
-def main():
+  viewInput = str(input("Press enter to return to main menu ")); __init__()
+def __init__():
   # main function of the ledger
   global ADMIN_VERIFIED
   os.system("clear")
@@ -331,4 +331,5 @@ def main():
 
 
 # run main function subroutine
-main()
+while True:
+  __init__()
