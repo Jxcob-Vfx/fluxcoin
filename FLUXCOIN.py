@@ -9,7 +9,7 @@ from datetime import datetime
 # set admin access boolean to false by default
 ADMIN_VERIFIED = False
 
-# this entire script is broken up into a series of subroutines that are mostly called by the main function and its subsidiaries
+# this entire script is broken up into a series of subroutines that are mostly called by the __init__() function and its subsidiaries
 
 def clearError():
   # error when end user does not want to clear ledger
